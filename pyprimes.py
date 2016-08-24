@@ -32,4 +32,14 @@ def spiral(layers):
 			arr[x,y] = count
 	return arr
 
+	
+if __name__ == '__main__':
+	import matplotlib.pyplot as plt
+	layers = 100
+	a = spiral(layers)
+	for x in range(layers*2-1):
+		for y in range(layers*2-1):
+			a[x,y] = isprime(a[x,y])
+	plt.figimage(a*255)
+	plt.show()
 
