@@ -55,40 +55,40 @@ def factorize(n):
 def miller_rabin(n):
 	"""
 	Basic miller rabin primality test:
-    #https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test
+	https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test
 	"""
-    from random import randint
+	from random import randint
 
-    # Instant composites
-    if n % 2 == 0:
-        if n == 2:
-            return True
-        return False
-    if n < 2:
-        return False
+	# Instant composites
+	if n % 2 == 0:
+		if n == 2:
+			return True
+		return False
+	if n < 2:
+		return False
 
-    # n−1 as 2**r·d
-    bnless = bin(n-1)
+	# n−1 as 2**r·d
+	bnless = bin(n-1)
 	# r is how many times n-1 is divisible by 2
 	# view in binary then count ending zeros
-    r = len(bnless) - len(bnless.rstrip('0'))
-    d = n//2**r
+	r = len(bnless) - len(bnless.rstrip('0'))
+	d = n//2**r
 
-    # Mainloop
-    for a in [2,3,5]:
-        a = randint(2, n-2)
-        x = a**d % n
-        if x == 1 or x == n - 1:
-            continue
-        for _ in range(r-1):
-            x = x**2 % n
-            if x == 1:
-                return False
-            if x == n - 1:
-                break
-        else:
-            return False
-    return True
+	# Mainloop
+	for a in [2,3,5]:
+		a = randint(2, n-2)
+		x = a**d % n
+		if x == 1 or x == n - 1:
+			continue
+		for _ in range(r-1):
+		x = x**2 % n
+		if x == 1:
+			return False
+			if x == n - 1:
+				break
+		else:
+			return False
+	return True
 	
 def spiral(layers):
 	"""
