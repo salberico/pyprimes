@@ -6,9 +6,9 @@ def isprime(n):
 	"""
 	# Handle edge cases
 	if n == 2 or n == 3:
-		return 1
+		return True
 	if n % 2 == 0 or n % 3 == 0 or n == 1:
-		return 0
+		return False
 		
 	fac = 5
 	inc = 2
