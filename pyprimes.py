@@ -81,9 +81,9 @@ def miller_rabin(n):
 		if x == 1 or x == n - 1:
 			continue
 		for _ in range(r-1):
-		x = x**2 % n
-		if x == 1:
-			return False
+			x = x**2 % n
+			if x == 1:
+				return False
 			if x == n - 1:
 				break
 		else:
